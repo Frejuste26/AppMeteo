@@ -1,0 +1,118 @@
+@font-face {
+    font-family: "Poppins";
+    src: url('../Poppins-Regular.ttf');
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f5f6fa;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.header-logo {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.text-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+    text-decoration: none;
+    color: #2f3640;
+}
+
+.header-search {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#searchInput {
+    width: 70%;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f5f6fa;
+    color: #0097e6;
+    outline: 0;
+    transition: all 0.2s ease;
+}
+
+#searchInput:focus {
+    border: 1px solid #00a8ff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#searchButton {
+    width: 25%;
+    height: 40px;
+    background-color: #00a8ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#searchButton:hover {
+    background-color: #0097e6;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.current {
+    width: 40%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.searched {
+    width: 50%;
+    border: 1px solid #ccc;
+    padding: 25px 20px;
+    border-radius: 5px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="shortcut icon" href="./Assets/Image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./Assets/Css/style.css">
+    <script type="module" src="./Assets/Js/app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-logo">
+                <img src="./Assets/Image/weather .png" alt="Weather App" width="50" height="auto">
+                <h2 class="text-logo">Weather APP</h2>
+            </div>
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Enter a city name">
+                <button id="searchButton">Search</button>
+            </div>
+        </header>
+    
+        <main class="main">
+            <div class="current">
+                <h2 id="currentCity"></h2>
+                <span id="currentDate"></span>
+                <div class="current-weather">
+                    <img width="60" height="auto" id="currentIcon">
+                    <h3 id="currentTemp"></h3>
+                    <p id="currentDesc"></p>
+                </div>
+            </div>
+            <div class="searched">
+                <h2 id="weatherCity"></h2>
+                <div class="weather">
+                    <img width="60" height="auto" id="weatherIcon">
+                    <h3 id="weatherTemp"></h3>
+                    <p id="weatherDesc"></p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

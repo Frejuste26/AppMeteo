@@ -1,7 +1,4 @@
-@font-face {
-    font-family: "Poppins";
-    src: url('../Poppins-Regular.ttf');
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 *{
     padding: 0;
@@ -12,25 +9,33 @@
 
 body {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: #f5f6fa;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+body.dark-mode {
+    background-color: #2f3640;
+    color: #f5f6fa;
+}
+
 .container {
-    width: 80%;
+    width: 95%;
     max-width: 1000px;
-    height: 500px;
+    min-height: 500px;
     background-color: #fff;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.container.dark-mode {
+    background-color: #1e272e;
 }
 
 .header {
@@ -38,7 +43,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .header-logo {
@@ -76,7 +81,11 @@ body {
 
 #searchInput:focus {
     border: 1px solid #00a8ff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#searchInput {
+    aria-label: "Enter a city name";
 }
 
 #searchButton {
@@ -92,6 +101,16 @@ body {
 
 #searchButton:hover {
     background-color: #0097e6;
+    transform: scale(1.05); /* Slightly enlarges the button */
+}
+
+#searchButton:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#searchButton {
+    aria-label: "Search weather information";
 }
 
 .main {
@@ -99,8 +118,6 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20px;
-    padding: 20px;
 }
 
 .current {
@@ -108,6 +125,9 @@ body {
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
+    background: linear-gradient(to top right, #f5f6fa, #fff);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
 }
 
 .searched {
@@ -115,4 +135,225 @@ body {
     border: 1px solid #ccc;
     padding: 25px 20px;
     border-radius: 5px;
+    background: linear-gradient(to top right, #f5f6fa, #fff);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px 0; 
+}
+
+.current:hover img, .searched:hover img {
+    animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+#currentTemp, #weatherTemp {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+#currentCity, #weatherCity {
+    font-weight: 400;
+    font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .header-logo {
+        width: 60%;
+    }
+
+    .header-search {
+        width: 35%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .current, .searched {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-search {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #searchInput, #searchButton {
+        width: 90%;
+        margin: 5px 0;
+    }
+
+    .current, .searched {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+body.dark-mode #searchInput {
+    background-color: #57606f;
+    color: #f5f6fa;
+}
+
+body.dark-mode #searchButton {
+    background-color: #3742fa;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  display: none; /* Caché par défaut */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.show-loader {
+  display: block; /* Afficher lors du chargement */
+}
+
+.error-message {
+  color: red;
+  font-size: 1rem;
+  margin-top: 10px;
+  display: none; /* Caché par défaut */
+}
+
+.show-error {
+  display: block; /* Afficher l'erreur */
+}
+
+.forecast-container {
+    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.forecast {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-cities-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.favorite-city {
+    background-color: #fff;
+    border-radius: 10px;
+    color:#1e272e;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.favorite-city:hover {
+    background-color: #f5f6fa;
+}
+
+.favorite-city img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+
+    &:hover {
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
+    }
+    &:active {
+        transform: scale(0.95);
+    }
+
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
+
+    @media (max-width: 480px) {
+        width: 30px;
+        height: 30px;
+    }
+    @media (max-width: 320px) {
+        width: 20px;
+        height: 20px;
+    }
+    @media (max-width: 240px) {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+.remove-favorite-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.remove-favorite-icon:hover {
+    color: red;
+}
+
+.add-favorite-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.add-favorite-icon:hover {
+    color: green;
+}
+
+#addFavoriteButton {
+    background-color: #0097e6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        bottom: 5px;
+        right: 5px;
+    }
+
 }

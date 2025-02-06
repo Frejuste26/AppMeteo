@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="./Assets/Css/style.css">
     <script type="module" src="./Assets/Js/app.js"></script>
 </head>
-<body>
-    <div class="container">
+<body >
+    <div class="container ">
         <header class="header">
             <div class="header-logo">
-                <img src="./Assets/Image/weather .png" alt="Weather App" width="50" height="auto">
+                <img src="./Assets/Image/weather.png" alt="Weather App" width="50" height="auto">
                 <h2 class="text-logo">Weather APP</h2>
             </div>
             <div class="header-search">
@@ -40,6 +40,11 @@
                 </div>
             </div>
         </main>
+            <div id="forecastContainer" class="forecast-container"></div>
+            <div id="favoriteCitiesContainer" class="favorite-cities-container"></div>
+            <button id="addFavoriteButton">Favaoris</button>
     </div>
+    <div class="loader" id="loader"></div>
+    <div id="errorMessage" class="error-message"></div>
 </body>
 </html>
